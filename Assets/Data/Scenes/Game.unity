@@ -1056,3 +1056,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 10
+  Min: {x: -8, y: -4.5}
+  Max: {x: 4, y: 4.5}
