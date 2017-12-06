@@ -7,14 +7,35 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
 
     public float Speed;
+    public float FireInterval = 0.25f;
+
+    float timer = 0f;
 
     public Vector2 Min, Max;
+
+    public GameObject LaserPrefab;
+
+    public Transform SpawnPoint;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
-	
+
+    void Update()
+    {
+        timer += Time.deltaTime;
+        if (Input.GetButton("Fire1"))
+        {
+            if (timer >= FireInterval)
+            {
+                timer = 0f;
+                Instantiate(LaserPrefab, SpawnPoint.position, LaserPrefab.transform.rotation);
+            }
+        }
+
+    }
+
 	void FixedUpdate ()
     {
 
